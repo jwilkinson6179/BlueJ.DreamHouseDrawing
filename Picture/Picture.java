@@ -6,16 +6,23 @@
  * colors (only after it's been drawn, of course).
  *
  * This class was written as an early example for teaching Java with BlueJ.
- * 
+ *
  * @author  Michael Kölling and David J. Barnes
  * @version 1.1  (24 May 2001)
  */
 public class Picture
 {
     private Square wall;
-    private Square window;
     private Triangle roof;
-    private Circle sun;
+    private Square doorBottom;
+    private Square doorTop;
+    private Circle windowDoor;
+    private Square window;
+    private Square garage;
+    private Square garageDoor;
+    private Triangle garageRoof;
+    private Square trunk;
+    private Triangle leaves;
 
     /**
      * Constructor for objects of class Picture
@@ -31,28 +38,72 @@ public class Picture
     public void draw()
     {
         wall = new Square();
-        wall.moveVertical(80);
-        wall.changeSize(100);
+        wall.moveVertical(60);
+        wall.changeSize(120);
         wall.makeVisible();
 
-        window = new Square();
-        window.changeColor("black");
-        window.moveHorizontal(20);
-        window.moveVertical(100);
-        window.makeVisible();
-
         roof = new Triangle();
-        roof.changeSize(50, 140);
-        roof.moveHorizontal(60);
-        roof.moveVertical(70);
+        roof.moveVertical(55);
+        roof.moveHorizontal(70);
+        roof.changeSize(45, 130);
+        roof.changeColor("black");
         roof.makeVisible();
 
-        sun = new Circle();
-        sun.changeColor("yellow");
-        sun.moveHorizontal(180);
-        sun.moveVertical(-10);
-        sun.changeSize(60);
-        sun.makeVisible();
+        doorTop = new Square();
+        doorTop.moveVertical(150);
+        doorTop.moveHorizontal(20);
+        doorTop.changeColor("yellow");
+        doorTop.makeVisible();
+
+        doorBottom = new Square();
+        doorBottom.moveVertical(120);
+        doorBottom.moveHorizontal(20);
+        doorBottom.changeColor("yellow");
+        doorBottom.makeVisible();
+
+        windowDoor = new Circle();
+        windowDoor.moveVertical(115);
+        windowDoor.moveHorizontal(60);
+        windowDoor.makeVisible();
+
+        window = new Square();
+        window.changeColor("blue");
+        window.moveVertical(100);
+        window.moveHorizontal(60);
+        window.makeVisible();
+
+        garage = new Square();
+        garage.moveVertical(95);
+        garage.moveHorizontal(120);
+        garage.changeSize(85);
+        garage.makeVisible();
+
+        garageRoof = new Triangle();
+        garageRoof.changeColor("black");
+        garageRoof.changeSize(30, 95);
+        garageRoof.moveVertical(100);
+        garageRoof.moveHorizontal(170);
+        garageRoof.makeVisible();
+
+        garageDoor = new Square();
+        garageDoor.changeColor("yellow");
+        garageDoor.changeSize(60);
+        garageDoor.moveVertical(120);
+        garageDoor.moveHorizontal(130);
+        garageDoor.makeVisible();
+
+        trunk = new Square();
+        trunk.changeSize(15);
+        trunk.changeColor("magenta");
+        trunk.moveHorizontal(80);
+        trunk.moveVertical(165);
+        trunk.makeVisible();
+
+        leaves = new Triangle();
+        leaves.changeSize(90, 25);
+        leaves.moveHorizontal(98);
+        leaves.moveVertical(110);
+        leaves.makeVisible();
     }
 
     /**
@@ -63,9 +114,6 @@ public class Picture
         if(wall != null)   // only if it's painted already...
         {
             wall.changeColor("black");
-            window.changeColor("white");
-            roof.changeColor("black");
-            sun.changeColor("black");
         }
     }
 
@@ -77,9 +125,6 @@ public class Picture
         if(wall != null)   // only if it's painted already...
         {
             wall.changeColor("red");
-            window.changeColor("black");
-            roof.changeColor("green");
-            sun.changeColor("yellow");
         }
     }
 
